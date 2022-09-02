@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import { Header } from "./Header";
 import StoryBookRoute from "../../routes/storybookRoute";
+import Home from "../../routes/homes";
+
 export default {
   title: "Example/Header",
   component: Header,
@@ -37,7 +39,9 @@ export default {
 const Template: ComponentStory<typeof Header> = (args) => (
   //<Header {...args} />
   <Routes>
-    <Route path={"/user"} element={<Header {...args} />}></Route>
+    <Route path={"/user"} element={<Header {...args} />}>
+      <Route path={"/user/home"} element={<Home />} />
+    </Route>
     <Route path={"/user/one"} element={<StoryBookRoute />} />
   </Routes>
 );

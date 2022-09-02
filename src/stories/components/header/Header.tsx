@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
 import { Button } from "../button/Button";
 import "./header.css";
 
@@ -24,7 +24,10 @@ export const Header = ({
 
   return (
     <header>
-      <div className="wrapper">
+      <div
+        className="wrapper"
+        style={{ display: "flex", flexDirection: "column" }}
+      >
         <div>
           {user ? (
             <>
@@ -53,6 +56,15 @@ export const Header = ({
         >
           Hello Word{" "}
         </div>
+        <div
+          onClick={() => {
+            console.log("home is clicked ");
+            navigate("/settings/user/home");
+          }}
+        >
+          go home
+        </div>
+        <Outlet />
       </div>
     </header>
   );
